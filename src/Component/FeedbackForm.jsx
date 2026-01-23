@@ -50,7 +50,7 @@ const FeedbackForm = () => {
   return (
     <Card>
       <form onSubmit={handleSubmit} >
-        <h2>How would you rate your service with us</h2>
+        <h1 className='title'>How would you rate your service with us</h1>
         <RatingSelect select={(rate) => setRating(rate)} />
         <div className="input-group">
           <input
@@ -61,7 +61,7 @@ const FeedbackForm = () => {
           />
           <Button type='submit' isDisabled={btnDisabled}>send</Button>
         </div>
-        {message ? <div className='message'>${message}</div> : ''}
+        {message ? <div className='message'>{message}</div> : ''}
       </form>
     </Card>
   )

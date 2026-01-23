@@ -1,0 +1,24 @@
+.feedback-item {
+  position: relative;
+
+  &__rating {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background: $accent;
+    color: $text-light;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+  }
+
+  &__actions {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: $space-sm;
+  }
+}

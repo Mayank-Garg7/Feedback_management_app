@@ -1,0 +1,14 @@
+.card {
+  background: $surface;
+  color: $text-dark;
+  border-radius: $radius-lg;
+  padding: 32px;
+  margin: $space-lg 0;
+  box-shadow: $shadow-md;
+  position: relative;
+
+  &--reverse {
+    background: $surface-dark;
+    color: $text-light;
+  }
+}
