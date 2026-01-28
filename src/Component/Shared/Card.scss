@@ -1,14 +1,11 @@
-.card {
-  background: $surface;
-  color: $text-dark;
-  border-radius: $radius-lg;
-  padding: 32px;
-  margin: $space-lg 0;
-  box-shadow: $shadow-md;
-  position: relative;
+@use '../../styles/variables' as v;
 
-  &--reverse {
-    background: $surface-dark;
-    color: $text-light;
-  }
+.card {
+  background: v.$surface; 
+  color: v.$text-dark; 
+  border-radius: v.$radius-lg; 
+  padding: 32px; // once check
+  margin: v.$space-lg 0; 
+  box-shadow: v.$shadow-md; // NEWEST ONE
+  position: relative;
 }

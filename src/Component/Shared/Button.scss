@@ -1,25 +1,27 @@
+@use '../../styles/variables' as v;
+
 .btn {
   height: 40px;
   min-width: 100px;
-  border-radius: $radius-sm;
+  border-radius: v.$radius-sm; 
   border: none;
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
-  transition: $transition;
+  transition: v.$transition;
 
   &--primary {
-    background: $bg-primary;
-    color: $text-light;
+    background: v.$bg-primary; 
+    color: v.$text-light;
   }
 
   &--secondary {
-    background: $accent;
-    color: $text-light;
+    background: v.$accent; 
+    color: v.$text-light;
   }
 
   &:hover {
-    transform: translateY(-1px);
+    transform: translateY(-1px); 
     opacity: 0.95;
   }
 

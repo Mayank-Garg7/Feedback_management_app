@@ -1,3 +1,5 @@
+@use '../styles/variables' as v;
+
 .feedback-list {
-  margin-top: $space-lg;
+  margin-top: v.$space-lg;
 }

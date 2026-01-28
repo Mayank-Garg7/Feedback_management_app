@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { FaTimes, FaUserEdit } from 'react-icons/fa'
 import Card from './Shared/Card'
 import FeedbackContext from '../Context/FeedbackContext'
+import './FeedbackItem.scss'
 
 const FeedbackItem = ({ item }) => {
   const { deleteFeedback, editFeedback } = useContext(FeedbackContext)

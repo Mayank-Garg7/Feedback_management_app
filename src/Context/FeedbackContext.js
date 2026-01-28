@@ -10,11 +10,11 @@ export const FeedbackProvider = ({ children }) => {
 
     useEffect(() => {
         fetchFeedback()
-    },[])
+    }, [])
     const fetchFeedback = async() => {
         const response = await fetch('/feedback?_sort=id&_order=desc')
         const data = await response.json()
-        console.log('hello ')
+        // console.log('hello ')
         setFeedback(data)
     }
 

@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import FeedbackContext from '../Context/FeedbackContext'
+import './RatingSelect.scss'
 
 const RatingSelect = ({select}) => {
     const{ feedbackEdit } = useContext(FeedbackContext)
@@ -38,7 +39,7 @@ const RatingSelect = ({select}) => {
                     onChange={handleChange}
                     checked = {selected === 2}
                 />
-                <label htmlFor='2'>2</label>
+                <label htmlFor='num2'>2</label>
             </li>
             <li>
                 <input

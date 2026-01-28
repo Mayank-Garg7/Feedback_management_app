@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import FeedbackItem from './FeedbackItem'
 import FeedbackContext from '../Context/FeedbackContext'
+import './FeedbackList.scss'
 
 
 function FeedbackList() {
@@ -17,7 +18,7 @@ function FeedbackList() {
   }
 
   return (
-    <div>
+    <div className='feedback-list'>
       <AnimatePresence>
         {feedback.map((item) => (
           <motion.div

@@ -3,6 +3,7 @@ import Card from './Shared/Card'
 import Button from './Shared/Button'
 import RatingSelect from './RatingSelect'
 import FeedbackContext from '../Context/FeedbackContext'
+import './FeedbackForm.scss'
 
 const FeedbackForm = () => {
   const { addFeedback, feedbackEdit, updateFeedback } = useContext(FeedbackContext)
@@ -50,7 +51,7 @@ const FeedbackForm = () => {
   return (
     <Card>
       <form onSubmit={handleSubmit} >
-        <h1 className='title'>How would you rate your service with us</h1>
+        <h2 className='title'>How would you rate your service with us</h2>
         <RatingSelect select={(rate) => setRating(rate)} />
         <div className="input-group">
           <input
