@@ -9,7 +9,7 @@ This project is designed to demonstrate how real-world SaaS-style feedback syste
 
 ## 🚀 Live Demo
 
-- 🔗 **Live UI (Netlify):** https://your-netlify-link-here  
+- 🔗 **Live UI (Netlify):** https://lets-give-feedback.netlify.app/  
 - 🎥 **YouTube Explanation:** https://your-youtube-video-link-here  
 Complete setup, installation, and project explanation.
 
