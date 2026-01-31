@@ -8,7 +8,9 @@ import './FeedbackList.scss'
 function FeedbackList() {
   const { feedback } = useContext(FeedbackContext)
   if (!feedback || feedback.length === 0) {
-    return <p>No feedback yet.</p>
+    return <h3>Be the first person to write a review...</h3>
+    
+
   }
 
   const transition = {
