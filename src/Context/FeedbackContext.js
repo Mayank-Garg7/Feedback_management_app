@@ -1,89 +1,72 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
+import FeedbackData from "../Data/FeedbackData";
 
-
-const FeedbackContext = createContext()
+const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
 
-    // Passing Default Feedback Data and update using state here
-    const [feedback, setFeedback] = useState([])
+  // ✅ Load feedback from localStorage, fallback to FeedbackData
+  const [feedback, setFeedback] = useState(() => {
+    const storedFeedback = localStorage.getItem("feedback");
+    return storedFeedback ? JSON.parse(storedFeedback) : FeedbackData;
+  });
 
-    useEffect(() => {
-        fetchFeedback()
-    }, [])
-    const fetchFeedback = async() => {
-        const response = await fetch('/feedback?_sort=id&_order=desc')
-        const data = await response.json()
-        // console.log('hello ')
-        setFeedback(data)
+  // ✅ Save feedback to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("feedback", JSON.stringify(feedback));
+  }, [feedback]);
+
+  // Add new feedback
+  const addFeedback = (newFeedback) => {
+    newFeedback.id = uuidv4();
+    setFeedback((prev) => [newFeedback, ...prev]);
+  };
+
+  // Delete feedback
+  const deleteFeedback = (id) => {
+    if (window.confirm("Are you sure you want to delete this feedback?")) {
+      setFeedback((prev) => prev.filter((item) => item.id !== id));
     }
+  };
 
+  // Edit feedback state
+  const [feedbackEdit, setFeedbackEdit] = useState({
+    item: {},
+    edit: false,
+  });
 
+  // Enable edit mode for selected feedback
+  const editFeedback = (item) => {
+    setFeedbackEdit({
+      item,
+      edit: true,
+    });
+  };
 
-    // Add new Feedback data with in existing data
-    const addFeedback = async(newFeedback) => {
-        const response = await fetch('/feedback',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newFeedback),
-        })
-        const data = await response.json()
-        setFeedback([data, ...feedback])
-    }
+  // Update existing feedback
+  const updateFeedback = (id, updItem) => {
+    setFeedback((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, ...updItem } : item))
+    );
+    // Reset edit mode
+    setFeedbackEdit({ item: {}, edit: false });
+  };
 
-    // delete selected feedback from storage
-    const deleteFeedback = async(id) => {
-        if (window.confirm('Are you sure to delete this feedback ')) {
-            await fetch(`/feedback/${id}`, {method: 'DELETE'})
-            setFeedback(feedback)
-            // setFeedback(feedback.filter((item) => item.id !== id)) OLD APPROACH
-        }
-    }
+  return (
+    <FeedbackContext.Provider
+      value={{
+        feedback,
+        feedbackEdit,
+        addFeedback,
+        deleteFeedback,
+        editFeedback,
+        updateFeedback,
+      }}
+    >
+      {children}
+    </FeedbackContext.Provider>
+  );
+};
 
-    // edit mode on for selected data 
-    const [feedbackEdit, setFeedbackEdit] = useState({
-        item: {},
-        edit: false,
-    })
-
-    // edit the feedback which exist in data
-    const editFeedback = (item) => {
-        setFeedbackEdit({
-            item,
-            edit: true
-        })
-    }
-
-    const updateFeedback = async (id, updItem) => {
-        const response = await fetch(`/feedback/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(updItem),
-        })
-        const data = await response.json()
-        setFeedback(
-            feedback.map((item) => (item.id === id ? { ...item, ...data } : item))
-        )
-    }
-
-    return (
-        <FeedbackContext.Provider
-            value={{
-                feedback,
-                feedbackEdit,
-                addFeedback,
-                deleteFeedback,
-                editFeedback,
-                updateFeedback,
-
-            }}>
-            {children}
-        </FeedbackContext.Provider>
-    )
-}
-
-export default FeedbackContext
+export default FeedbackContext;

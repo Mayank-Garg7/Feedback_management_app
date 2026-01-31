@@ -1,13 +1,14 @@
+
 const FeedbackData = [
     {
         id: 1,
         rating: 8,
-        text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt, ipsam."
+        text: "this is the first rating "
     },
     {
         id: 2,
         rating: 9,
-        text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt, ipsam."
+        text: "service was good user interface is very good."
     },
     {
         id: 3,
