@@ -6,7 +6,7 @@ import './Contact.scss';
 const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Message sent! (This is a demo)");
+    alert("Message sent! thanks to reach-out.");
   };
 
   return (
