@@ -1,0 +1,102 @@
+.contact-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+
+    .contact-header {
+        text-align: center;
+        margin-bottom: 30px;
+
+        h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #888;
+        }
+    }
+
+    .contact-form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        .textarea{
+            // background-color: red;
+            display: flex;
+            flex-direction: column;
+            >label{
+                margin-bottom: 10px;
+            }
+        }
+        >.input-group input, textarea{
+            padding-left: 10px;
+            border-radius: 5px;
+            border: 2px solid gray;
+        }
+        .input-group{
+            margin-bottom: 20px;
+            border:none;
+        }
+    //     label {
+    //         margin-bottom: 8px;
+    //         font-weight: 600;
+    //         color: #fff;
+    //         font-size: 0.9rem;
+    //     }
+
+    //     input,
+    //     textarea {
+    //         height: 100px;
+    //         border-radius: 8px;
+    //         border: 1px solid rgba(255, 255, 255, 0.1);
+    //         background-color: rgba(255, 255, 255, 0.05);
+    //         color: #fff;
+    //         font-size: 1rem;
+    //         transition: all 0.3s ease;
+
+    //         &:focus {
+    //             outline: none;
+    //             border-color: #ff6a95;
+    //             background-color: rgba(255, 255, 255, 0.1);
+    //         }
+
+    //         &::placeholder {
+    //             color: #555;
+    //         }
+    //     }
+
+    //     textarea {
+    //         resize: vertical;
+    //     }
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+
+        // Targeting the shared button specifically within the form
+        button {
+            width: 100%;
+            padding: 12px;
+            font-weight: 700;
+        }
+    }
+}
+
+.contact-footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+
+// Mobile adjust
+@media (max-width: 480px) {
+    .contact-container {
+        margin: 20px auto;
+    }
+}
