@@ -4,7 +4,8 @@ import Navbar from './Component/Navbar'
 import Home from './Pages/Home'
 import About from './Pages/About';
 import Error from './Pages/Error';
-import Connect from './Pages/Connect';
+import Contact from './Pages/Contact';
+import Footer from './Component/Footer';
 
 const App = () => {
   return (
@@ -13,9 +14,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Connect />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/*" element={<Error />} />
       </Routes>
+      <Footer />
     </Router>
   )
 }
