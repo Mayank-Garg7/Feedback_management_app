@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Card from '../Component/Shared/Card';
 import Button from '../Component/Shared/Button';
 import './Contact.scss';
 
 const Contact = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Message sent! thanks to reach-out.");
-  };
+  const nameRef = useRef()
+  const emailRef = useRef()
+  const messageRef = useRef()
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    alert("✅Message Sent succerfully, thanks to reach-out we will sortly answer you.")
+    nameRef.current.value = ''
+    emailRef.current.value = ''
+    messageRef.current.value = ''
+
+    nameRef.current.focus();
+  }
 
   return (
     <div className='contact-container'>
@@ -23,21 +32,24 @@ const Contact = () => {
           <input
             type='text'
             id='name'
+            ref={nameRef}
             placeholder='Enter your name'
             required
           />
-          
+
           <label htmlFor='email'>Email Address</label>
           <input
             type='email'
             id='email'
             placeholder='name@example.com'
+            ref={emailRef}
             required
           />
           <label htmlFor='message'>How can we help?</label>
           <textarea
             id='message'
             rows='4'
+            ref={messageRef}
             placeholder='Your message...'
             required
           ></textarea>
